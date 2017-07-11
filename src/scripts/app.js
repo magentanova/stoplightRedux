@@ -154,9 +154,10 @@ const combineWithHistory = reducers =>
 					nextState[key] = reducers[key](oldCurrent[key],action)
 					return nextState
 				}, {})
+				var newIndex = state.index + 1
 				return {
-					history: state.history.concat(newCurrent),
-					index: state.index + 1
+					history: state.history.slice(0,newIndex).concat(newCurrent),
+					index: newIndex
 				}
 		}
 	}
