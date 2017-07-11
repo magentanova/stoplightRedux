@@ -17,7 +17,6 @@ const onLightClick = (e) => {
 	}
 
 const onBackward = (e) => {
-	console.log(e.target.className)
 	if (e.target.className.includes('inactive')) return
 	store.dispatch(
   			{
@@ -56,7 +55,6 @@ class App extends React.Component {
 	}
 
 	render() {
-		console.log(this.state)
 		return (
 			<div className="app">
 				<div className="butts">
@@ -96,14 +94,15 @@ const Stoplight = (props) =>
 
 const HistoryScroll = (props) => 
 	<div id="scroll">
-		{props.history.slice(0,props.index).map(state => 
+		{console.log(props.history)}
+		{props.history.slice(0,props.index + 1).map(state => 
 			<p className={"historical-color " + state.color}>
 				{state.color}
 			</p>)
 		}
 	</div>
 
-const color = (state = "red", action) => {
+const color = (state = "", action) => {
 	switch (action.type) {
 		case "COLOR_CHANGE":
 			return action.color
@@ -129,7 +128,6 @@ const history = (state = [], action) => {
 
 const initialState = {
 	history: [{
-		color: "red"
 	}],
 	index: 0
 }
@@ -154,7 +152,6 @@ const combineWithHistory = reducers =>
 		 		var oldCurrent = state.history[state.index] // little reducers will work with the current state. they don't need to know about history.
 				var newCurrent = Object.keys(reducers).reduce((nextState,key) => {
 					nextState[key] = reducers[key](oldCurrent[key],action)
-					console.log(nextState)			
 					return nextState
 				}, {})
 				return {
