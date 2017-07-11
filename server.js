@@ -48,7 +48,7 @@ connectToDB(PROJECT_NAME)
 // =========
 // APPLICATION MIDDLEWARE 
 // =========
-app.use( express.static( __dirname + '/dist/assets') );
+app.use( express.static( __dirname + '/dist/') );
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded() );
 app.use( cookieParser() );
