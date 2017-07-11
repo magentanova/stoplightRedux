@@ -1,6 +1,6 @@
 {
   "name": "stoplightRedux",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "build": "npm run build-js && npm run build-css && echo '\n\n===== building js and scss files for production =====\n\n'",
     "build-css": "node-sass --output-style compressed src/styles/style.scss dist/assets/css/style.css",
