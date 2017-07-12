@@ -73,6 +73,9 @@ class App extends React.Component {
 				</div>
 				<Stoplight {...this.state.history[this.state.index]} />
 				<HistoryScroll index={this.state.index} history={this.state.history} />
+				<div className="footer"> 
+					<a target="_blank" href="https://github.com/magentanova/stoplightRedux">source</a>
+				</div>
 			</div>
 			)
 	}
